@@ -1,0 +1,41 @@
+  <main id="main" class="wrap record">
+    <a class="back-link" href="../"><span aria-hidden="true">←</span> All photographs</a>
+    <h1>$title</h1>
+    <p class="title-zh" lang="zh-Hans">$title_zh</p>
+
+    <div class="record-grid">
+      <figure class="record-photo">
+        <img src="../../$image"$responsive
+             width="$width" height="$height"
+             alt="$alt">
+        <figcaption>
+          <p>$caption</p>
+          <p lang="zh-Hans">$caption_zh</p>
+        </figcaption>
+      </figure>
+
+      <section class="record-details" aria-labelledby="details-title">
+        <h2 id="details-title">Photo record</h2>
+        <dl>
+          <dt>Date</dt>
+          <dd>$date$date_note</dd>
+
+          <dt>Location</dt>
+          <dd>$location</dd>
+
+          <dt>Photographer</dt>
+          <dd>$photographer</dd>
+
+          <dt>Source</dt>
+          <dd><a href="$source">Wikimedia Commons record <span aria-hidden="true">↗</span></a>$primary_link
+            <a class="record-link" href="$original">Full-size source file <span aria-hidden="true">↗</span></a>
+          </dd>
+
+          <dt>Reuse</dt>
+          <dd><a href="$license_url">$license</a>
+            <p>$image_note</p>
+          </dd>
+        </dl>
+      </section>
+    </div>
+  </main>
