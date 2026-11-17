@@ -269,6 +269,20 @@ h1 {
   color: var(--muted);
 }
 
+#open-gallery {
+  background: transparent;
+  color: var(--accent);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#open-gallery:hover {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+#open-gallery[hidden] { display: none; }
+
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -314,6 +328,94 @@ h1 {
   color: var(--muted);
   font-size: .86rem;
 }
+
+.photo-viewer {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #161412;
+  color: #f6f2e9;
+  color-scheme: dark;
+}
+
+body:has(.photo-viewer[open]) { overflow: hidden; }
+
+.viewer-screen {
+  display: grid;
+  grid-template-rows: auto minmax(6rem, 1fr) auto;
+  height: 100%;
+  overflow: auto;
+  background: #161412;
+}
+
+.viewer-toolbar,
+.viewer-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .55rem 1.25rem;
+  padding: .65rem clamp(.75rem, 3vw, 2rem);
+  background: #211e1b;
+}
+
+.viewer-toolbar { border-bottom: 1px solid #554e47; }
+.viewer-caption { border-top: 1px solid #554e47; }
+
+.viewer-controls {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+}
+
+.viewer-controls button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: .25rem .7rem;
+  border: 1px solid #72685e;
+  background: transparent;
+  color: inherit;
+  font: .9rem/1.25 var(--sans);
+  cursor: pointer;
+}
+
+.viewer-controls button:hover { background: #413933; }
+
+.viewer-screen :focus-visible {
+  outline: 2px solid #f6f2e9;
+  outline-offset: 2px;
+}
+
+#photo-position {
+  min-width: 3.5rem;
+  color: #e4d9cb;
+  font: .8rem/1.2 var(--mono);
+  text-align: center;
+}
+
+.viewer-image {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(.5rem, 2vw, 1.5rem);
+  place-items: center;
+}
+
+.viewer-image img {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.viewer-caption h2 { font-size: clamp(1.1rem, 2.6vw, 1.65rem); }
+.viewer-caption p { margin-top: .35rem; color: #e4d9cb; font-size: .86rem; }
+.viewer-caption a { color: #f6f2e9; }
 
 .record-grid {
   display: grid;

@@ -68,7 +68,14 @@ def main():
     for record in records:
         photo = {key: escape(str(value)) for key, value in record.items()}
         render_record(photo)
-        cards.append(card_template.substitute(photo).rstrip())
+        cards.append(
+            card_template.substitute(
+                photo,
+                viewer_image=photo.get("large_image", photo["image"]),
+                viewer_width=photo.get("large_width", photo["width"]),
+                license_url=LICENSE_URLS[photo["license"]],
+            ).rstrip()
+        )
 
     gallery = template("photo-gallery").substitute(cards="\n".join(cards))
     write_page(

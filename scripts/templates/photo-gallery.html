@@ -2,8 +2,34 @@
     <h1>Photographs</h1>
     <p class="title-zh" lang="zh-Hans">照片档案</p>
     <p class="gallery-intro">The 1989 protests in Beijing, the aftermath of the military crackdown, and gatherings in Poland and the Netherlands.</p>
+    <button type="button" class="action" id="open-gallery" aria-haspopup="dialog" hidden>Open full-screen gallery <span aria-hidden="true">↗</span></button>
 
     <ul class="photo-grid" role="list">
 $cards
     </ul>
   </main>
+
+  <dialog class="photo-viewer" id="photo-viewer" aria-label="Photograph gallery">
+    <div class="viewer-screen">
+      <div class="viewer-toolbar">
+        <div class="viewer-controls">
+          <button type="button" id="previous-photo" aria-label="Previous photo">←</button>
+          <span id="photo-position" aria-live="polite" aria-atomic="true"></span>
+          <button type="button" id="next-photo" aria-label="Next photo">→</button>
+        </div>
+        <div class="viewer-controls">
+          <button type="button" id="toggle-fullscreen" hidden>Full screen</button>
+          <button type="button" id="close-gallery" autofocus>Close</button>
+        </div>
+      </div>
+      <div class="viewer-image"></div>
+      <div class="viewer-caption">
+        <div>
+          <h2 id="viewer-title"></h2>
+          <p><span id="viewer-credit"></span> · <a id="viewer-license">Reuse terms</a></p>
+        </div>
+        <a id="viewer-record">Photo record <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </dialog>
+  <script src="../assets/photo-viewer.js" defer></script>
